@@ -1,0 +1,111 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SubHeroHeader from "../components/SubHeroHeader.astro";
+import SectionContainer from "../components/atom/SectionContainer.astro";
+import ContactContent from "../components/ContactContent.astro";
+import SectionTitle from "../components/atom/SectionTitle.astro";
+---
+
+<Layout title="お問い合わせ | うし塾" class="contact">
+  <SubHeroHeader>お問い合わせ</SubHeroHeader>
+  <SectionContainer>
+    <div>
+      <SectionTitle class="contact_title" size={"small"}>
+        ご受講までの流れ
+      </SectionTitle>
+      <div class="contact_step">
+        <div class="contact_step_item">
+          <div class="contact_step_item_title">
+            <span>STEP1</span>無料の学習相談
+          </div>
+          <div class="contact_step_item_content">
+            まずは、学習に関するお悩みを総合的に伺います。（所要時間約1時間）<br
+            />
+            お子様のモチベーションタイプを探りつつ、お子様に最適のコースをご提示させていただきます。
+          </div>
+        </div>
+        <div class="contact_step_item">
+          <div class="contact_step_item_title">
+            <span>STEP2</span>
+            体験受講
+          </div>
+          <div class="contact_step_item_content">
+            試ししてみたいと感じていただけましたら、是非ご体験ください。
+            <ul class="contact_step_item_list">
+              <li>学習習慣化コース →1週間体験受講可能</li>
+              <li>オンライン学習指導コース →2回まで体験受講可能</li>
+              <li>大学受験推薦対策指導コース →初回講義を体験受講可能</li>
+            </ul>
+          </div>
+        </div>
+        <div class="contact_step_item">
+          <div class="contact_step_item_title">
+            <span>STEP3</span>
+            正式受講
+          </div>
+          <div class="contact_step_item_content">
+            引き続きの指導をご希望の場合に、正式お申込みとなります。
+          </div>
+        </div>
+      </div>
+    </div>
+    <ContactContent class="course_contact mt-70" />
+  </SectionContainer>
+</Layout>
+
+<style lang="scss">
+  .contact {
+    .contact_step {
+      width: fit-content;
+      margin-inline: auto;
+      .contact_step_item {
+        display: grid;
+        grid-template-columns: 160px 1fr;
+        padding-bottom: 56px;
+        position: relative;
+        &::after {
+          content: "";
+          display: block;
+          border: solid 24px transparent;
+          border-top: solid 24px #000;
+          position: absolute;
+          bottom: -32px;
+          left: 0;
+          right: 0;
+          margin-inline: auto;
+          width: 24px;
+        }
+        &:last-child {
+          &::after {
+            display: none;
+          }
+        }
+        & + .contact_step_item {
+          margin-top: 56px;
+        }
+        .contact_step_item_title {
+          font-size: 20px;
+          font-weight: bold;
+          display: flex;
+          flex-direction: column;
+          span {
+            font-size: 1.6rem;
+            font-weight: normal;
+          }
+        }
+        .contact_step_item_content {
+          font-size: 14px;
+          line-height: 1.8;
+          .contact_step_item_list {
+            list-style: decimal-leading-zero;
+            margin-inline-start: 24px;
+          }
+        }
+      }
+    }
+  }
+  .contact_title {
+    margin-bottom: 80px;
+    text-align: center;
+  }
+</style>

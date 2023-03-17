@@ -1,0 +1,129 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SubHeroHeader from "../components/SubHeroHeader.astro";
+import SectionContainer from "../components/atom/SectionContainer.astro";
+---
+
+<Layout title="指導/実績" className="service">
+  <SubHeroHeader>指導/実績</SubHeroHeader>
+  <SectionContainer>
+    <div class="service_grid">
+      <a href="#" class="media_card">
+        <div class="media_card_image">
+          <img src="/images/sercive_image01.png" alt="" />
+        </div>
+        <div class="media_card_details">
+          <div class="media_card_details_title">うしの教えタイトル</div>
+          <div class="media_card_details_text">
+            うしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキスト
+          </div>
+        </div>
+      </a>
+      <a href="#" class="media_card">
+        <div class="media_card_image">
+          <img src="/images/sercive_image02.jpg" alt="" />
+        </div>
+        <div class="media_card_details">
+          <div class="media_card_details_title">うしの教えタイトル</div>
+          <div class="media_card_details_text">
+            うしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキスト
+          </div>
+        </div>
+      </a>
+      <a href="#" class="media_card">
+        <div class="media_card_image">
+          <img src="/images/sercive_image03.jpg" alt="" />
+        </div>
+        <div class="media_card_details">
+          <div class="media_card_details_title">うしの教えタイトル</div>
+          <div class="media_card_details_text">
+            うしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキスト
+          </div>
+        </div>
+      </a>
+      <a href="#" class="media_card">
+        <div class="media_card_image">
+          <img src="/images/sercive_image01.png" alt="" />
+        </div>
+        <div class="media_card_details">
+          <div class="media_card_details_title">うしの教えタイトル</div>
+          <div class="media_card_details_text">
+            うしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキスト
+          </div>
+        </div>
+      </a>
+      <a href="#" class="media_card">
+        <div class="media_card_image">
+          <img src="/images/sercive_image02.jpg" alt="" />
+        </div>
+        <div class="media_card_details">
+          <div class="media_card_details_title">うしの教えタイトル</div>
+          <div class="media_card_details_text">
+            うしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキスト
+          </div>
+        </div>
+      </a>
+      <a href="#" class="media_card">
+        <div class="media_card_image">
+          <img src="/images/sercive_image03.jpg" alt="" />
+        </div>
+        <div class="media_card_details">
+          <div class="media_card_details_title">うしの教えタイトル</div>
+          <div class="media_card_details_text">
+            うしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキストうしの教えテキスト
+          </div>
+        </div>
+      </a>
+    </div>
+  </SectionContainer>
+</Layout>
+
+<style lang="scss">
+  .service_grid {
+    display: grid;
+    width: 100%;
+    gap: 40px 80px;
+    grid-template-columns: repeat(2, calc(50% - 40px));
+  }
+  .service_page {
+    margin-bottom: 160px;
+    .service_page_inner {
+      width: min(100% - 8rem, 1120px);
+      padding: 24px 0;
+      margin-inline: auto;
+    }
+  }
+  .parallel_layout_item {
+    box-shadow: 0 0 25px rgb(51 51 51 / 10%);
+  }
+  .media_card {
+    .media_card_image {
+      width: 100%;
+      height: 240px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .media_card_details {
+      padding: 24px;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      min-height: 280px;
+      .media_card_details_title {
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 1.5;
+        margin-bottom: 15px;
+        text-align: left;
+      }
+      .media_card_details_text {
+        line-height: 1.86;
+        margin-bottom: 30px;
+        text-align: justify;
+      }
+    }
+  }
+</style>

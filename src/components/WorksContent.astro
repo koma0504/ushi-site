@@ -1,0 +1,93 @@
+---
+import PrimaryButton from "./atom/PrimaryButton.astro";
+import SectionContainer from "./atom/SectionContainer.astro";
+import SectionLead from "./atom/SectionLead.astro";
+import SectionTitle from "./atom/SectionTitle.astro";
+---
+
+<SectionContainer class="works">
+  <SectionTitle>指導/実績</SectionTitle>
+  <SectionLead>
+    指導/実績に関する内容を一部抜粋。一人ひとりに拘りを持って指導しますので、達成させたい目標までお子様のみならず保護者様とも密なコミュニケーションをとりながら伴走させていただきます。
+  </SectionLead>
+  <div class="works_contents">
+    <div class="parallel_layout">
+      <div class="parallel_layout_item">
+        <img
+          class="parallel_layout_item_image"
+          src="/images/image01.jpg"
+          alt="a"
+        />
+        <p class="parallel_layout_item_text">【大学受験推薦対策指導コース】</p>
+      </div>
+      <div class="parallel_layout_item">
+        <img
+          class="parallel_layout_item_image"
+          src="/images/image02.jpg"
+          alt="a"
+        />
+        <p class="parallel_layout_item_text">【大学受験推薦対策指導コース】</p>
+      </div>
+      <div class="parallel_layout_item">
+        <img
+          class="parallel_layout_item_image"
+          src="/images/image03.jpg"
+          alt="a"
+        />
+        <p class="parallel_layout_item_text">【大学受験推薦対策指導コース】</p>
+      </div>
+      <div class="parallel_layout_item">
+        <img
+          class="parallel_layout_item_image"
+          src="/images/image04.jpg"
+          alt="a"
+        />
+        <p class="parallel_layout_item_text">【オンライン学習指導コース】</p>
+      </div>
+      <div class="parallel_layout_item">
+        <img
+          class="parallel_layout_item_image"
+          src="/images/image05.jpg"
+          alt="a"
+        />
+        <p class="parallel_layout_item_text">【学習習慣化指導コース】</p>
+      </div>
+      <div class="parallel_layout_item">
+        <img
+          class="parallel_layout_item_image"
+          src="/images/image06.jpg"
+          alt="a"
+        />
+        <p class="parallel_layout_item_text">【保護者様とのやりとり例】</p>
+      </div>
+    </div>
+  </div>
+  <PrimaryButton path="works" position={"center"}>詳しく見る</PrimaryButton>
+</SectionContainer>
+
+<style lang="scss">
+  .works {
+    .works_contents {
+      overflow-x: scroll;
+      width: 100%;
+      margin-bottom: 80px;
+    }
+    .parallel_layout {
+      display: grid;
+      width: 100%;
+      gap: "80px";
+      grid-template-columns: repeat(6, 230px);
+      .parallel_layout_item {
+        text-align: center;
+        img {
+          height: 480px;
+        }
+      }
+      .parallel_layout_item_image {
+      }
+      .parallel_layout_item_text {
+        margin-bottom: 24px;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,173 @@
+---
+import SectionContainer from "../components/atom/SectionContainer.astro";
+import ContactContent from "../components/ContactContent.astro";
+import SubHeroHeader from "../components/SubHeroHeader.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="コース一覧 | うし塾" class="course">
+  <SubHeroHeader>コース一覧</SubHeroHeader>
+  <SectionContainer class="course_section">
+    <section class="course_contents">
+      <h2 class="course_contents_title">学習習慣化指導コース</h2>
+      <div class="course_contents_lead">
+        「反復する」に課題のあるお子様には、仕組みで学習を習慣化することが学力アップへの最適な解決方法になります。<br
+        />
+        復習した方がいいのは分かっているのに家だとできない、塾でとにかく沢山講座を提案される、そういったお悩みの方は是非ご相談ください。<br
+        /><br />
+        <span class="small">
+          ※本コース受講の前提条件は、「お子様自身に学習の意欲はあるが行動が伴わないこと」です。
+          強制的に勉強をさせるためのコースではございませんので、ご了承ください。
+        </span>
+      </div>
+      <div class="course_price">
+        <h3 class="course_price_title">ご料金</h3>
+        <ul class="course_price_content">
+          <li>
+            <span>LINEメッセージ/通話での学習管理</span>
+            <span> 4,980/月</span>
+          </li>
+          <li>
+            <span>【オプション】Zoomコーチング面談（1回30分目安）</span>
+            <span>2,480/回</span>
+          </li>
+          <li>
+            <span>対象学年 高校生～</span>
+            <span>（※中学生の方は要相談）</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="course_contents">
+      <h2 class="course_contents_title">オンライン学習指導コース</h2>
+      <div class="course_contents_lead">
+        「わかる」「できる」に課題のあるお子様には、まずは理解して自力でできるようになる体験を数多くしてもらうことが必要です。<br
+        />
+        塾講師、塾運営歴１５年以上のノウハウを凝縮した指導を、マンツーマンでトコトン受けていただけます。
+      </div>
+
+      <div class="course_price">
+        <h3 class="course_price_title">ご料金</h3>
+        <ul class="course_price_content">
+          <li>
+            <span>週1回コース（1回の指導80分目安）</span>
+            <span>24,800/月</span>
+          </li>
+          <li>
+            <span>週2回コース（1回の指導80分目安）</span>
+            <span>39,800/月</span>
+          </li>
+          <li>
+            <span>対象学年 中学生～</span>
+            <span>（※高校生の方は要相談）</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="course_contents">
+      <h2 class="course_contents_title">大学受験推薦対策指導コース</h2>
+      <div class="course_contents_lead">
+        推薦で志望校に合格するには、小論文やディスカッションのような推薦に特化した対策が必要不可欠です。推薦合格率100%の実績あるノウハウで、お子様の志望校合格、ひいてはその先の将来に向けたお手伝いをさせていただきます。<br
+        /><br />
+        <span class="small">
+          ※本コース受講の前提条件は、「こちらの出題する課題を１００％実施すること」「特別な事情がない限りは一般受験のための学習と並行して受験対策を行うこと」です。
+          確実に将来のために役立つ経験にしていただきたいため、推薦＝楽、というお考えが少しでもない状態で開始することが必要となります。
+        </span>
+      </div>
+      <div class="course_price">
+        <h3 class="course_price_title">ご料金</h3>
+        <div>
+          <ul class="course_price_content">
+            <li>
+              <span>4月～7月（週の指導時間120分目安）</span>
+              <span>44,800/月</span>
+            </li>
+            <li>
+              <span>8月以降（面接練習/小論文添削 含む）</span>
+              <span> 69,800/月</span>
+            </li>
+            <li>
+              <span>10月までの対策を希望の場合の総額</span>
+              <span> 388,600</span>
+            </li>
+            <li>
+              <span>高校3年生</span>
+              <span>※4月開始になります</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <ContactContent class="course_contact" />
+  </SectionContainer>
+</Layout>
+
+<style lang="scss">
+  .course {
+    .course_contents {
+      background-color: #fff;
+      padding: 64px;
+      border: solid 1px var(--main-c-black);
+      & + .course_contents {
+        margin-top: 96px;
+      }
+      .course_contents_title {
+        color: #222;
+        font-size: 3.2rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        line-height: 1.5;
+        text-align: center;
+        margin-bottom: 48px;
+      }
+      .course_contents_lead {
+        font-size: 1.6rem;
+        line-height: 1.6;
+        letter-spacing: 0.05em;
+        max-width: 640px;
+        margin-inline: auto;
+        margin-bottom: 88px;
+        .small {
+          background: #efefef;
+          display: inline-block;
+          padding: 16px;
+          border-radius: 16px;
+          font-size: 1.2rem;
+        }
+      }
+    }
+    .course_price {
+      max-width: 640px;
+      margin-inline: auto;
+      .course_price_title {
+        font-size: 2.6rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        margin-bottom: 5px;
+        text-align: center;
+        line-height: 1;
+        margin-bottom: 24px;
+      }
+      .course_price_content {
+        padding: 16px;
+        text-align: center;
+        li {
+          padding: 20px 10px;
+          display: flex;
+          span:first-child {
+            margin-right: auto;
+          }
+          & + li {
+            border-top: 1px solid var(--main-c-black);
+          }
+        }
+      }
+    }
+    .course_contact {
+      margin-top: 96px;
+      .section {
+        width: 100%;
+      }
+    }
+  }
+</style>

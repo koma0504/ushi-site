@@ -1,0 +1,121 @@
+---
+import PrimaryButton from "./atom/PrimaryButton.astro";
+import ScrollDown from "./atom/ScrollDown.astro";
+---
+
+<script>
+  import gsap from "gsap";
+
+  window.addEventListener(
+    "DOMContentLoaded",
+    () => {
+      gsap
+        .timeline()
+        .to(".opening", { x: "100%", duration: 0.7 })
+        .to(".opening", { autoAlpha: 0, display: "none" })
+        .fromTo(
+          ".hero_header",
+          { x: "-1%", opacity: 0 },
+          { x: "0", opacity: 1, duration: 1 }
+        )
+        .fromTo(
+          ".header",
+          { y: "-1%", opacity: 0 },
+          { y: "0", opacity: 1, duration: 1 },
+          "-=0.9"
+        );
+    },
+    { once: true }
+  );
+</script>
+
+<div class="opening"></div>
+<div class="hero_header">
+  <div class="hero_header_text_wrap">
+    <p class="hero_header_title">
+      <img src="/logo_black.svg" alt="" />
+    </p>
+    <p class="hero_header_job">フリーランス/オンライン家庭教師</p>
+    <p class="hero_header_service_title">コース一覧</p>
+    <ul class="hero_header_service_list">
+      <li class="hero_header_service_item">学習習慣化指導コース</li>
+      <li class="hero_header_service_item">オンライン学習指導コース</li>
+      <li class="hero_header_service_item">大学受験推薦対策指導コース</li>
+    </ul>
+    <PrimaryButton path={"contact"} position={"left"}>
+      お問い合わせ
+    </PrimaryButton>
+  </div>
+  <div class="hero_header_imge_wrap">
+    {/* <img src="/images/hero_header.jpg" alt="" /> */}
+  </div>
+  <ScrollDown />
+</div>
+
+<style lang="scss">
+  .hero_header {
+    width: min(100% - 8rem, 1120px);
+    padding: 24px 0;
+    margin-inline: auto;
+    align-items: center;
+    margin-bottom: 160px;
+    display: grid;
+    align-items: center;
+    height: max(550px, calc(100vh - 88px));
+    position: relative;
+    .hero_header_text_wrap {
+      .hero_header_title {
+        margin-bottom: 80px;
+        img {
+          width: 400px;
+        }
+      }
+      .hero_header_job {
+        font-size: 3.6rem;
+        letter-spacing: 0.05em;
+        line-height: 1.4;
+        margin-bottom: 20px;
+        font-family: 游明朝, YuMincho, ヒラギノ明朝 Pro W3, Hiragino Mincho Pro,
+          "Noto Serif JP", HG明朝E, MS P明朝, MS 明朝, serif;
+      }
+      .hero_header_service_title {
+        margin-bottom: 6px;
+      }
+      .hero_header_service_list {
+        color: #444;
+        font-size: 1.6rem;
+        line-height: 1.6;
+        letter-spacing: 0.05em;
+        margin-bottom: 50px;
+        font-weight: 400;
+        display: inline-block;
+      }
+      .hero_header_service_item {
+        position: relative;
+        padding-left: 18px;
+        &::before {
+          content: "";
+          position: absolute;
+          top: 14px;
+          left: 0;
+          width: 9px;
+          height: 1px;
+          display: block;
+          background-color: #444;
+        }
+      }
+    }
+
+    .hero_header_imge_wrap {
+    }
+  }
+  .opening {
+    width: 100%;
+    height: 100%;
+    background: #444;
+    position: absolute;
+    z-index: 1000;
+    inset: 0;
+    margin: auto;
+  }
+</style>

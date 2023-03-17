@@ -1,0 +1,137 @@
+---
+import PrimaryButton from "./atom/PrimaryButton.astro";
+import SectionContainer from "./atom/SectionContainer.astro";
+import SectionLead from "./atom/SectionLead.astro";
+import SectionTitle from "./atom/SectionTitle.astro";
+---
+
+<SectionContainer className={"profile"}>
+  <SectionTitle>プロフィール</SectionTitle>
+  <SectionLead>
+    指導/実績に関する内容を一部抜粋。一人ひとりに拘りを持って指導しますので、達成させたい目標までお子様のみならず保護者様とも密なコミュニケーションをとりながら伴走させていただきます。
+    <br />
+    <span> ※より詳しくは、コース一覧からご確認ください。</span>
+  </SectionLead>
+  <div class="hafe_layout">
+    <div class="hafe_layout_item">
+      <img src="" alt="" />
+    </div>
+    <div class="hafe_layout_item">
+      <p class="profile_name">
+        牛込 裕介 <span>（うしごめ ゆうすけ）</span>
+      </p>
+      <p class="profile_position">オンライン家庭教師</p>
+      <div class="profile_skil">
+        <p class="porfile_skil_title">指導実績教材</p>
+        <ul>
+          <li>◎各種教材会社作成の問題集</li>
+          <li>◎デキタス/Atama＋/aim@/QUREO/各予備校映像動画/フォレスタ映像</li>
+        </ul>
+      </div>
+      <div class="profile_history">
+        <p class="porfile_skil_title">私について</p>
+        <ul>
+          <li>
+            <span>2011年</span>
+            <span>東京理科大学大学院卒</span>
+          </li>
+          <li>
+            <span>2011年</span>
+            <span>
+              教育総合企業へ就職。
+              <br />
+              関東の集団塾部門に配属。
+              <br />
+              4年間、集団塾の授業および運営を経験。
+            </span>
+          </li>
+          <li>
+            <span>2015年</span>
+            <span>
+              講師が一方向に「教える指導」に疑問を感じ、NLP心理学/児童心理学を取り入れコーチング技術を習得。
+              <br />
+              「引き出す指導」の原点に。
+            </span>
+          </li>
+          <li>
+            <span>2016年</span>
+            <span>
+              他教育企業へ転職。
+              <br />
+              個別指導塾の運営を6年間で3校舎実施。
+              <br />
+              同社内成績向上ランキングでは全国3位も達成。
+            </span>
+          </li>
+          <li>
+            <span>現在</span>
+            <span>
+              フリーランスで活動中。
+              <br />
+              オンライン家庭教師として、1人1人によりコミットしたサービスの提供を実施するに至る。
+            </span>
+          </li>
+        </ul>
+      </div>
+      <p class="profile_qualifications"></p>
+    </div>
+  </div>
+  <PrimaryButton path="profile" position={"center"}>詳しく見る</PrimaryButton>
+</SectionContainer>
+
+<style lang="scss">
+  .hafe_layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 80px;
+    .profile_name {
+      font-size: 2rem;
+      font-weight: bold;
+      span {
+        font-size: 1.6rem;
+        font-weight: normal;
+      }
+    }
+    .profile_position {
+      font-size: 4rem;
+      letter-spacing: 0.09em;
+      margin-bottom: 15px;
+    }
+    .profile_skil {
+      font-weight: 500;
+      color: #444;
+      font-size: 1.6rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      line-height: 1.87;
+      margin-bottom: 25px;
+      ul {
+        li {
+          padding-left: 18px;
+          text-indent: -18px;
+        }
+      }
+    }
+    .porfile_skil_title {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    .profile_history {
+      font-weight: 500;
+      color: #444;
+      font-size: 1.6rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      line-height: 1.87;
+      margin-bottom: 25px;
+      ul {
+        li {
+          display: grid;
+          grid-template-columns: 15% 85%;
+          margin-bottom: 12px;
+          line-height: 1.6;
+        }
+      }
+    }
+  }
+</style>

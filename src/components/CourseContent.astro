@@ -1,0 +1,139 @@
+---
+import PrimaryButton from "./atom/PrimaryButton.astro";
+import SectionContainer from "./atom/SectionContainer.astro";
+import SectionLead from "./atom/SectionLead.astro";
+import SectionTitle from "./atom/SectionTitle.astro";
+---
+
+<SectionContainer className={"course"}>
+  <SectionTitle>コース一覧</SectionTitle>
+  <SectionLead>
+    私の指導の根幹にあるのは、「受動的な勉強」ではなく「能動的な学習」です。
+    <br />
+    ただこちらから「教える」指導ではなく、知識や学習意欲を「引き出す」指導をモットーにご依頼を承っております。
+    <br />
+    【わかる→できる→反復する→実践する】 <br />
+    の各段階のどこにつまづきの原因があるかを特定し、個々に合わせた学習指導を実施致します。
+  </SectionLead>
+  <div class="alternate_layout">
+    <div class="alternate_layout_item">
+      <div class="alternate_layout_item_small">
+        <img src="/images/course_image01.jpg" alt="" />
+      </div>
+      <div class="alternate_layout_item_large">
+        <h3 class="alternate_layout_item_title">
+          <span class="alternate_layout_item_number">01</span>
+          ：学習習慣化指導コース
+        </h3>
+        <p class="alternate_layout_item_text">
+          「反復する」に課題のあるお子様には、仕組みで学習を習慣化することが学力アップへの最適な解決方法になります。復習した方がいいのは分かっているのに家だとできない、塾でとにかく沢山講座を提案される、そういったお悩みの方は是非ご相談ください。
+        </p>
+        <div class="alternate_layout_item_price">
+          （\5,000/月～）※対象：高校生
+        </div>
+      </div>
+    </div>
+    <div class="alternate_layout_item reverse">
+      <div class="alternate_layout_item_small">
+        <img src="/images/course_image02.jpg" alt="" />
+      </div>
+      <div class="alternate_layout_item_large">
+        <h3 class="alternate_layout_item_title">
+          <span class="alternate_layout_item_number">02</span>
+          ：オンライン学習指導コース
+        </h3>
+        <p class="alternate_layout_item_text">
+          「わかる」「できる」に課題のあるお子様には、まずは理解して自力でできるようになる体験を数多くしてもらうことが必要です。塾講師、塾運営歴１５年以上のノウハウを凝縮した指導を、マンツーマンでトコトン受けていただけます。
+        </p>
+        <div class="alternate_layout_item_price">
+          （\20,000/月～）※対象：中学生
+        </div>
+      </div>
+    </div>
+    <div class="alternate_layout_item">
+      <div class="alternate_layout_item_small">
+        <img src="/images/course_image03.jpg" alt="" />
+      </div>
+      <div class="alternate_layout_item_large">
+        <h3 class="alternate_layout_item_title">
+          <span class="alternate_layout_item_number">03</span>
+          ：大学受験推薦対策指導コース
+        </h3>
+        <p class="alternate_layout_item_text">
+          推薦で志望校に合格するには、小論文やディスカッションのような推薦に特化した対策が必要不可欠です。推薦合格率100%の実績あるノウハウで、お子様の志望校合格、ひいてはその先の将来に向けたお手伝いをさせていただきます。
+        </p>
+        <div class="alternate_layout_item_price">
+          （\40,000/月～） ※申し込み可能期間：高校3年生の4月まで
+          ※学科試験を含む場合は本サービスの対象外となります
+        </div>
+      </div>
+    </div>
+  </div>
+  <PrimaryButton path="course" position={"center"}>詳しく見る</PrimaryButton>
+</SectionContainer>
+
+<style lang="scss">
+  .alternate_layout {
+    margin: 80px 0;
+    .alternate_layout_item {
+      display: flex;
+      align-items: center;
+      gap: 35px;
+      &.reverse {
+        flex-direction: row-reverse;
+      }
+    }
+    .alternate_layout_item + .alternate_layout_item {
+      margin-top: 120px;
+    }
+    .alternate_layout_item_small {
+      flex: 0 1 35%;
+      max-width: 380px;
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .alternate_layout_item_large {
+      margin-top: 30px;
+      flex: 0 1 57%;
+    }
+    .alternate_layout_item_title {
+      align-items: center;
+      margin-bottom: 30px;
+      display: flex;
+      color: #222;
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.5;
+      margin-top: 2px;
+      letter-spacing: 0.1em;
+    }
+    .alternate_layout_item_number {
+      flex: 0 0 auto;
+      font-size: 3.8rem;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-right: 8px;
+    }
+    .alternate_layout_item_text {
+      margin-bottom: 15px;
+    }
+    .alternate_layout_item_price {
+      color: #666;
+      font-size: 1.2rem;
+      line-height: 1.5;
+      letter-spacing: 0.12em;
+    }
+    .details_btn {
+      display: grid;
+      place-items: center;
+      margin: 140px 0 0 0;
+    }
+  }
+</style>

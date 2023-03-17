@@ -1,0 +1,29 @@
+---
+import PrimaryButton from "./atom/PrimaryButton.astro";
+import SectionLead from "./atom/SectionLead.astro";
+import SectionTitle from "./atom/SectionTitle.astro";
+
+const { class: className } = Astro.props;
+---
+
+<div class:list={["contact", className]}>
+  <SectionTitle class="contact_title">お問い合わせ</SectionTitle>
+  <SectionLead>
+    指導/学習相談のご依頼につきましては、こちらからお問い合わせください。
+  </SectionLead>
+  <PrimaryButton path="contact" position={"center"}>お問い合わせ</PrimaryButton>
+</div>
+
+<style lang="scss">
+  .contact {
+    margin-inline: auto;
+    padding: 68px 40px 75px;
+    text-align: center;
+    box-shadow: 0 0 25px rgb(51 51 51 / 12%);
+    position: relative;
+    border-radius: 32px;
+    .contact_title {
+      font-size: 4rem;
+    }
+  }
+</style>

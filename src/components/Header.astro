@@ -1,0 +1,87 @@
+---
+type menu = {
+  path: string;
+  label: string;
+};
+const menua: menu[] = [
+  {
+    path: "/",
+    label: "トップ",
+  },
+  {
+    path: "/course",
+    label: "コース一覧",
+  },
+  // {
+  //   path: "/service",
+  //   label: "指導/実績",
+  // },
+  {
+    path: "/profile",
+    label: "プロフィール",
+  },
+  {
+    path: "/contact",
+    label: "お問い合わせ",
+  },
+];
+---
+
+<script></script>
+
+<header class="header">
+  <nav class="header_nav">
+    <h1 class="header_logo">
+      <a href="/">
+        <img src="/images/logo_black.svg" alt="" />
+      </a>
+    </h1>
+    <ul class="header_menu">
+      {
+        menua.map((a: menu) => {
+          return (
+            <li>
+              <a class="js-link_anime" href={a.path}>
+                {a.label}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </nav>
+</header>
+
+<style lang="scss">
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    .header_nav {
+      display: flex;
+      width: min(100% - 8rem, 1120px);
+      padding: 24px 0;
+      margin-inline: auto;
+      align-items: center;
+      .header_logo {
+        margin-right: auto;
+        font-size: 32px;
+        min-width: 72px;
+        width: 72px;
+        padding-right: 16px;
+      }
+      .header_menu {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        text-transform: capitalize;
+        a {
+          font-weight: 400;
+          letter-spacing: 0.07em;
+          line-height: 1;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+</style>

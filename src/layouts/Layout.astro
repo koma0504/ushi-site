@@ -1,35 +1,78 @@
 ---
-export interface Props {
-	title: string;
-}
+import "../styles/reset.scss";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
-const { title } = Astro.props;
+const { title, class: className } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<script>
+  import gsap from "gsap";
+
+  window.addEventListener("DOMContentLoaded", () => {
+    gsap.to(".main", {
+      autoAlpha: 1,
+      duration: 1,
+      ease: "power4.out",
+    });
+
+    const linkEls = [
+      ...document.querySelectorAll('a:not([href*="#"]):not([target])'),
+      ...document.querySelectorAll(".js-link_anime"),
+    ];
+    const currentHostName = window.location.hostname; //URL内だったらと条件にする
+
+    linkEls.forEach((linkEl) => {
+      linkEl.addEventListener("click", (e: Event) => {
+        // command or control+クリックのときは処理しない
+        if ((e.ctrlKey && !e.metaKey) || (!e.ctrlKey && e.metaKey)) return;
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        let url = linkEl.getAttribute("href");
+
+        const addFadeoutCallBack = (url: any | null): any => {
+          window.location = url;
+        };
+        if (url !== "" && url.indexOf(currentHostName)) {
+          gsap
+            .timeline()
+            .to(".main", {
+              autoAlpha: 0,
+              duration: 0.4,
+              ease: "power4.out",
+            })
+            .call(addFadeoutCallBack, [url]);
+        }
+      });
+    });
+  });
+</script>
+
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header />
+    <main class:list={["main", className]}>
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>
+
 <style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
+  :root {
+    --main-c-black: #222;
+  }
+  .main {
+    opacity: 0;
+    visibility: hidden;
+  }
 </style>
