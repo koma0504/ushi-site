@@ -54,6 +54,8 @@ import SectionTitle from "../components/atom/SectionTitle.astro";
 </Layout>
 
 <style lang="scss">
+  @use "src/styles/mixins" as *;
+
   .contact {
     .contact_step {
       width: fit-content;
@@ -63,6 +65,9 @@ import SectionTitle from "../components/atom/SectionTitle.astro";
         grid-template-columns: 160px 1fr;
         padding-bottom: 56px;
         position: relative;
+        @include mq(s) {
+          display: block;
+        }
         &::after {
           content: "";
           display: block;
@@ -82,6 +87,9 @@ import SectionTitle from "../components/atom/SectionTitle.astro";
         }
         & + .contact_step_item {
           margin-top: 56px;
+          @include mq(s) {
+            margin-top: 24px;
+          }
         }
         .contact_step_item_title {
           font-size: 20px;

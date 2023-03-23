@@ -22,8 +22,8 @@ import SectionTitle from "./atom/SectionTitle.astro";
       </div>
       <div class="alternate_layout_item_large">
         <h3 class="alternate_layout_item_title">
-          <span class="alternate_layout_item_number">01</span>
-          ：学習習慣化指導コース
+          <span class="alternate_layout_item_number">01：</span>
+          学習習慣化指導コース
         </h3>
         <p class="alternate_layout_item_text">
           「反復する」に課題のあるお子様には、仕組みで学習を習慣化することが学力アップへの最適な解決方法になります。復習した方がいいのは分かっているのに家だとできない、塾でとにかく沢山講座を提案される、そういったお悩みの方は是非ご相談ください。
@@ -39,8 +39,8 @@ import SectionTitle from "./atom/SectionTitle.astro";
       </div>
       <div class="alternate_layout_item_large">
         <h3 class="alternate_layout_item_title">
-          <span class="alternate_layout_item_number">02</span>
-          ：オンライン学習指導コース
+          <span class="alternate_layout_item_number">02：</span>
+          オンライン学習指導コース
         </h3>
         <p class="alternate_layout_item_text">
           「わかる」「できる」に課題のあるお子様には、まずは理解して自力でできるようになる体験を数多くしてもらうことが必要です。塾講師、塾運営歴１５年以上のノウハウを凝縮した指導を、マンツーマンでトコトン受けていただけます。
@@ -56,8 +56,8 @@ import SectionTitle from "./atom/SectionTitle.astro";
       </div>
       <div class="alternate_layout_item_large">
         <h3 class="alternate_layout_item_title">
-          <span class="alternate_layout_item_number">03</span>
-          ：大学受験推薦対策指導コース
+          <span class="alternate_layout_item_number">03：</span>
+          大学受験推薦対策指導コース
         </h3>
         <p class="alternate_layout_item_text">
           推薦で志望校に合格するには、小論文やディスカッションのような推薦に特化した対策が必要不可欠です。推薦合格率100%の実績あるノウハウで、お子様の志望校合格、ひいてはその先の将来に向けたお手伝いをさせていただきます。
@@ -73,6 +73,7 @@ import SectionTitle from "./atom/SectionTitle.astro";
 </SectionContainer>
 
 <style lang="scss">
+  @use "src/styles/mixins" as *;
   .alternate_layout {
     margin: 80px 0;
     .alternate_layout_item {
@@ -81,10 +82,19 @@ import SectionTitle from "./atom/SectionTitle.astro";
       gap: 35px;
       &.reverse {
         flex-direction: row-reverse;
+        @include mq(s) {
+          flex-direction: column-reverse;
+        }
+      }
+      @include mq(s) {
+        flex-direction: column-reverse;
       }
     }
     .alternate_layout_item + .alternate_layout_item {
       margin-top: 120px;
+      @include mq(s) {
+        margin-top: 40px;
+      }
     }
     .alternate_layout_item_small {
       flex: 0 1 35%;

@@ -28,6 +28,61 @@ const menuLink: menu[] = [
 ];
 ---
 
+<style lang="scss">
+  @use "src/styles/mixins" as *;
+  .footer {
+    background-color: #222;
+    margin-top: 80px;
+  }
+  .footer_inner {
+    width: min(100% - 8rem, 1120px);
+    padding: 80px 20px 30px;
+    margin-inline: auto;
+    align-items: center;
+    @include mq(s) {
+      padding: 40px 0 8px;
+    }
+  }
+  .footer_title {
+    width: 100%;
+    max-width: 205px;
+    margin: 0 auto;
+    display: block;
+    @include mq(s) {
+      text-align: center;
+    }
+  }
+  .footer_menu {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    padding: 50px 0 60px;
+    width: fit-content;
+    margin-inline: auto;
+    @include mq(s) {
+      flex-direction: column;
+      gap: 16px;
+      padding: 32px 0 24px;
+    }
+    a {
+      color: #f6f5f0;
+      font-size: 1.6rem;
+      letter-spacing: 0.1em;
+      line-height: 1;
+      font-weight: 500;
+    }
+  }
+  .footer_copyright {
+    color: #f6f5f0;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.2em;
+    display: block;
+    text-align: center;
+  }
+</style>
+
 <footer class="footer">
   <div class="footer_inner">
     <p class="footer_title">
@@ -49,46 +104,3 @@ const menuLink: menu[] = [
     </small>
   </div>
 </footer>
-
-<style lang="scss">
-  .footer {
-    background-color: #222;
-    margin-top: 80px;
-  }
-  .footer_inner {
-    width: min(100% - 8rem, 1120px);
-    padding: 80px 20px 30px;
-    margin-inline: auto;
-    align-items: center;
-  }
-  .footer_title {
-    width: 100%;
-    max-width: 205px;
-    margin: 0 auto;
-    display: block;
-  }
-  .footer_menu {
-    display: flex;
-    align-items: center;
-    gap: 80px;
-    padding: 50px 0 60px;
-    width: fit-content;
-    margin-inline: auto;
-    a {
-      color: #f6f5f0;
-      font-size: 1.6rem;
-      letter-spacing: 0.1em;
-      line-height: 1;
-      font-weight: 500;
-    }
-  }
-  .footer_copyright {
-    color: #f6f5f0;
-    font-size: 1.4rem;
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: 0.2em;
-    display: block;
-    text-align: center;
-  }
-</style>

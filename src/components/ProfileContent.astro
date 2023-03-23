@@ -80,10 +80,14 @@ import SectionTitle from "./atom/SectionTitle.astro";
 </SectionContainer>
 
 <style lang="scss">
+  @use "src/styles/mixins" as *;
   .hafe_layout {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     margin-bottom: 80px;
+    @include mq(s) {
+      display: block;
+    }
     .profile_name {
       font-size: 2rem;
       font-weight: bold;
@@ -130,6 +134,9 @@ import SectionTitle from "./atom/SectionTitle.astro";
           grid-template-columns: 15% 85%;
           margin-bottom: 12px;
           line-height: 1.6;
+          @include mq(s) {
+            grid-template-columns: 20% 80%;
+          }
         }
       }
     }

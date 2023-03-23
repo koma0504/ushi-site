@@ -1,54 +1,38 @@
 ---
-import "../styles/reset.scss";
+import "../styles/global.scss";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-
 const { title, class: className } = Astro.props;
 ---
 
-<script>
-  import gsap from "gsap";
+<style lang="scss" is:global>
+  @use "src/styles/mixins" as *;
 
-  window.addEventListener("DOMContentLoaded", () => {
-    gsap.to(".main", {
-      autoAlpha: 1,
-      duration: 1,
-      ease: "power4.out",
-    });
-
-    const linkEls = [
-      ...document.querySelectorAll('a:not([href*="#"]):not([target])'),
-      ...document.querySelectorAll(".js-link_anime"),
-    ];
-    const currentHostName = window.location.hostname; //URL内だったらと条件にする
-
-    linkEls.forEach((linkEl) => {
-      linkEl.addEventListener("click", (e: Event) => {
-        // command or control+クリックのときは処理しない
-        if ((e.ctrlKey && !e.metaKey) || (!e.ctrlKey && e.metaKey)) return;
-
-        e.preventDefault();
-        e.stopPropagation();
-
-        let url = linkEl.getAttribute("href");
-
-        const addFadeoutCallBack = (url: any | null): any => {
-          window.location = url;
-        };
-        if (url !== "" && url.indexOf(currentHostName)) {
-          gsap
-            .timeline()
-            .to(".main", {
-              autoAlpha: 0,
-              duration: 0.4,
-              ease: "power4.out",
-            })
-            .call(addFadeoutCallBack, [url]);
-        }
-      });
-    });
-  });
-</script>
+  :root {
+    --main-c-black: #222;
+  }
+  .main {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .sp_none {
+    display: inline;
+    @include mq(s) {
+      display: none;
+    }
+  }
+  .pc_none {
+    display: none;
+    @include mq(s) {
+      display: inline;
+    }
+  }
+  body {
+    &.open {
+      overflow: hidden;
+    }
+  }
+</style>
 
 <html lang="ja">
   <head>
@@ -67,12 +51,46 @@ const { title, class: className } = Astro.props;
   </body>
 </html>
 
-<style is:global>
-  :root {
-    --main-c-black: #222;
-  }
-  .main {
-    opacity: 0;
-    visibility: hidden;
-  }
-</style>
+<script>
+  import gsap from "gsap";
+
+  window.addEventListener("DOMContentLoaded", () => {
+    gsap.to(".main", {
+      autoAlpha: 1,
+      duration: 1,
+      ease: "power4.out",
+    });
+
+    const linkEls: NodeListOf<HTMLAnchorElement> = document.querySelectorAll(
+      'a:not([href*="#"]):not([target]), .js-link_anime'
+    );
+    const currentHostName: string = window.location.hostname; //URL内だったらと条件にする
+
+    linkEls.forEach((linkEl) => {
+      linkEl.addEventListener("click", (e: MouseEvent) => {
+        // command or control+クリックのときは処理しない
+        if ((e.ctrlKey && !e.metaKey) || (!e.ctrlKey && e.metaKey)) return;
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        let url: any = linkEl.getAttribute("href");
+
+        const addFadeoutCallBack = (url: Location | (string & Location)) => {
+          window.location = url;
+        };
+
+        if (url !== "" && url.indexOf(currentHostName)) {
+          gsap
+            .timeline()
+            .to(".main", {
+              autoAlpha: 0,
+              duration: 0.4,
+              ease: "power4.out",
+            })
+            .call(addFadeoutCallBack, [url]);
+        }
+      });
+    });
+  });
+</script>

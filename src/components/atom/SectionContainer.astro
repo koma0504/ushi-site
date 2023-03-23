@@ -8,12 +8,19 @@ const { class: className } = Astro.props;
 </section>
 
 <style lang="scss">
+  @use "src/styles/mixins" as *;
   .section {
     width: min(100% - 8rem, 1120px);
     padding: 24px 0;
     margin-inline: auto;
+    @include mq(s) {
+      width: min(100% - 4rem, 1120px);
+    }
     & + .section {
       margin-top: 120px;
+      @include mq(s) {
+        margin-top: 72px;
+      }
     }
   }
 </style>

@@ -8,16 +8,23 @@
 </div>
 
 <style lang="scss">
+  @use "src/styles/mixins" as *;
   .sub_hero_header {
     min-height: 240px;
     display: grid;
     place-items: center;
     margin-bottom: 56px;
     background-color: gray;
+    @include mq(s) {
+      min-height: 120px;
+    }
     .sub_hero_header_text {
       font-size: 56px;
       font-family: 游明朝, YuMincho, ヒラギノ明朝 Pro W3, Hiragino Mincho Pro,
         "Noto Serif JP", HG明朝E, MS P明朝, MS 明朝, serif;
+      @include mq(s) {
+        font-size: 40px;
+      }
     }
   }
 </style>

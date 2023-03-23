@@ -11,6 +11,7 @@ const { class: className, size } = Astro.props;
 </h2>
 
 <style lang="scss">
+  @use "src/styles/mixins" as *;
   .section_title {
     color: #222;
     font-size: 7rem;
@@ -19,13 +20,25 @@ const { class: className, size } = Astro.props;
     margin-bottom: 56px;
     font-family: 游明朝, YuMincho, ヒラギノ明朝 Pro W3, Hiragino Mincho Pro,
       "Noto Serif JP", HG明朝E, MS P明朝, MS 明朝, serif;
+    @include mq(s) {
+      font-size: 4rem;
+      margin-bottom: 40px;
+    }
   }
   .small {
     font-size: 3.5rem;
     margin-bottom: 32px;
+    @include mq(s) {
+      font-size: 3rem;
+      margin-bottom: 24px;
+    }
   }
   .lerge {
     font-size: 10rem;
     margin-bottom: 80px;
+    @include mq(s) {
+      font-size: 7rem;
+      margin-bottom: 46px;
+    }
   }
 </style>

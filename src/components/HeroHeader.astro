@@ -11,25 +11,29 @@ import ScrollDown from "./atom/ScrollDown.astro";
     () => {
       gsap
         .timeline()
-        .to(".opening", { x: "100%", duration: 0.7 })
-        .to(".opening", { autoAlpha: 0, display: "none" })
+        .to(".opening_content", { x: "100%", duration: 0.7 })
+        .to(".opening_content", { autoAlpha: 0, display: "none" })
+        .to(".opening", { autoAlpha: 0, display: "none" }, "-=1")
         .fromTo(
           ".hero_header",
           { x: "-1%", opacity: 0 },
-          { x: "0", opacity: 1, duration: 1 }
+          { x: "0", opacity: 1, duration: 1 },
+          "-=1"
         )
         .fromTo(
           ".header",
-          { y: "-1%", opacity: 0 },
+          { y: "16px", opacity: 0 },
           { y: "0", opacity: 1, duration: 1 },
-          "-=0.9"
+          "-=.5"
         );
     },
     { once: true }
   );
 </script>
+<div class="opening">
+  <div class="opening_content"></div>
+</div>
 
-<div class="opening"></div>
 <div class="hero_header">
   <div class="hero_header_text_wrap">
     <p class="hero_header_title">
@@ -112,10 +116,15 @@ import ScrollDown from "./atom/ScrollDown.astro";
   .opening {
     width: 100%;
     height: 100%;
-    background: #444;
     position: absolute;
     z-index: 1000;
     inset: 0;
     margin: auto;
+    overflow: hidden;
+    .opening_content {
+      width: 100%;
+      height: 100%;
+      background: #444;
+    }
   }
 </style>

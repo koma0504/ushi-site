@@ -1,0 +1,91 @@
+<style lang="scss">
+  @use "src/styles/mixins" as *;
+  .hamburger_menu {
+    position: relative;
+    display: none;
+    cursor: pointer;
+    @include mq(s) {
+      display: grid;
+      gap: 8px;
+    }
+    .bar {
+      display: block;
+      width: 32px;
+      height: 2px;
+      background-color: var(--main-c-black);
+      transition: all 0.3s ease-in-out;
+    }
+    &.open {
+      .bar {
+        background-color: #fff;
+        grid-area: 2/-1;
+        transition: all 0.3s ease-in-out;
+        &:nth-child(1) {
+          transform: rotate(45deg);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        &:nth-child(3) {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+</style>
+
+<div class="hamburger_menu">
+  <span class="bar"></span>
+  <span class="bar"></span>
+  <span class="bar"></span>
+</div>
+
+<script>
+  import { gsap } from "gsap";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const hamburgerMenu: HTMLElement = document.querySelector(
+      ".hamburger_menu"
+    ) as HTMLElement;
+    const navList: HTMLElement = document.querySelector(
+      ".header_menu"
+    ) as HTMLElement;
+    const body: HTMLElement = document.querySelector("body") as HTMLElement;
+
+    const tl = gsap.timeline({
+      defaults: {
+        duration: 0.3,
+        ease: "power2.out",
+      },
+    });
+
+    tl.set(navList, {
+      display: "none",
+      opacity: 0,
+      visibility: "hidden",
+      y: -100,
+    });
+
+    if (navList) {
+      hamburgerMenu.addEventListener("click", () => {
+        hamburgerMenu.classList.toggle("open");
+        navList.classList.toggle("open");
+        body.classList.toggle("open");
+
+        if (body.classList.contains("open")) {
+          tl.to(navList, {
+            opacity: 1,
+            display: "flex",
+            visibility: "visible",
+            y: 0,
+          });
+        } else {
+          tl.to(navList, {
+            y: -100,
+            opacity: 0,
+          }).set(navList, { display: "none", visibility: "hidden" });
+        }
+      });
+    }
+  });
+</script>

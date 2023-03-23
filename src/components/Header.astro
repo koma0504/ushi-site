@@ -1,4 +1,6 @@
 ---
+import HamburgerMenu from "./atom/HamburgerMenu.astro";
+
 type menu = {
   path: string;
   label: string;
@@ -12,10 +14,6 @@ const menua: menu[] = [
     path: "/course",
     label: "コース一覧",
   },
-  // {
-  //   path: "/service",
-  //   label: "指導/実績",
-  // },
   {
     path: "/profile",
     label: "プロフィール",
@@ -26,8 +24,6 @@ const menua: menu[] = [
   },
 ];
 ---
-
-<script></script>
 
 <header class="header">
   <nav class="header_nav">
@@ -49,10 +45,13 @@ const menua: menu[] = [
         })
       }
     </ul>
+    <HamburgerMenu />
   </nav>
 </header>
 
 <style lang="scss">
+  @use "src/styles/mixins" as *;
+
   .header {
     position: sticky;
     top: 0;
@@ -63,23 +62,42 @@ const menua: menu[] = [
       padding: 24px 0;
       margin-inline: auto;
       align-items: center;
+      @include mq(s) {
+        width: min(100% - 4rem, 1120px);
+        padding: 16px 0;
+      }
       .header_logo {
         margin-right: auto;
         font-size: 32px;
         min-width: 72px;
         width: 72px;
         padding-right: 16px;
+        z-index: 10;
       }
       .header_menu {
         display: flex;
         align-items: center;
         gap: 40px;
-        text-transform: capitalize;
+        @include mq(s) {
+          width: 100%;
+          flex-direction: column;
+          position: absolute;
+          top: 0;
+          left: 0;
+          padding-block-start: 30%;
+          height: 100vh;
+          background: var(--main-c-black);
+          gap: 8rem;
+        }
         a {
           font-weight: 400;
           letter-spacing: 0.07em;
-          line-height: 1;
           white-space: nowrap;
+          @include mq(s) {
+            font-size: 2.4rem;
+            font-weight: 400;
+            color: #fff;
+          }
         }
       }
     }

@@ -28,7 +28,9 @@ import Layout from "../layouts/Layout.astro";
             <span> 4,980/月</span>
           </li>
           <li>
-            <span>【オプション】Zoomコーチング面談（1回30分目安）</span>
+            <span
+              >【オプション】 <br class="pc_none" /> Zoomコーチング面談（1回30分目安）</span
+            >
             <span>2,480/回</span>
           </li>
           <li>
@@ -103,11 +105,15 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <style lang="scss">
+  @use "src/styles/mixins" as *;
   .course {
     .course_contents {
       background-color: #fff;
       padding: 64px;
       border: solid 1px var(--main-c-black);
+      @include mq(s) {
+        padding: 16px;
+      }
       & + .course_contents {
         margin-top: 96px;
       }
@@ -151,11 +157,19 @@ import Layout from "../layouts/Layout.astro";
       .course_price_content {
         padding: 16px;
         text-align: center;
+        @include mq(s) {
+          padding: 0;
+        }
         li {
           padding: 20px 10px;
           display: flex;
+          @include mq(s) {
+            padding: 16px 0;
+            align-items: center;
+          }
           span:first-child {
             margin-right: auto;
+            text-align: left;
           }
           & + li {
             border-top: 1px solid var(--main-c-black);
